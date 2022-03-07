@@ -13,6 +13,9 @@
 		D80F98A227D68969004A3C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D80F98A127D68969004A3C61 /* Assets.xcassets */; };
 		D80F98A527D68969004A3C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80F98A327D68969004A3C61 /* LaunchScreen.storyboard */; };
 		D85F510B27D68DDB0041C853 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F510A27D68DDA0041C853 /* MainViewController.swift */; };
+		D85F510E27D6A7290041C853 /* UISetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F510D27D6A7290041C853 /* UISetupProtocol.swift */; };
+		D85F511027D6AA860041C853 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F510F27D6AA860041C853 /* SignUpViewController.swift */; };
+		D85F511227D6AA950041C853 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511127D6AA950041C853 /* PasswordResetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		D80F98A427D68969004A3C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D80F98A627D68969004A3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D85F510A27D68DDA0041C853 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D85F510D27D6A7290041C853 /* UISetupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISetupProtocol.swift; sourceTree = "<group>"; };
+		D85F510F27D6AA860041C853 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D85F511127D6AA950041C853 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 		D80F989727D68968004A3C61 /* Coordinator_Sample_2 */ = {
 			isa = PBXGroup;
 			children = (
+				D85F510C27D6A69E0041C853 /* Protocols */,
 				D85F510927D68DC60041C853 /* ViewControllers */,
 				D85F510727D68D860041C853 /* App */,
 				D85F510827D68D900041C853 /* Resources */,
@@ -108,8 +115,18 @@
 			isa = PBXGroup;
 			children = (
 				D85F510A27D68DDA0041C853 /* MainViewController.swift */,
+				D85F510F27D6AA860041C853 /* SignUpViewController.swift */,
+				D85F511127D6AA950041C853 /* PasswordResetViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D85F510C27D6A69E0041C853 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D85F510D27D6A7290041C853 /* UISetupProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +244,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85F510B27D68DDB0041C853 /* MainViewController.swift in Sources */,
+				D85F511227D6AA950041C853 /* PasswordResetViewController.swift in Sources */,
+				D85F510E27D6A7290041C853 /* UISetupProtocol.swift in Sources */,
 				D80F989927D68968004A3C61 /* AppDelegate.swift in Sources */,
 				D80F989B27D68968004A3C61 /* SceneDelegate.swift in Sources */,
+				D85F511027D6AA860041C853 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

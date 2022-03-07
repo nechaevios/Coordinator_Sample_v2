@@ -1,16 +1,16 @@
 //
-//  MainViewController.swift
+//  PasswordResetViewController.swift
 //  Coordinator_Sample_2
 //
-//  Created by Nechaev Sergey  on 07.03.2022.
+//  Created by Nechaev Sergey  on 08.03.2022.
 //
 
 import UIKit
 
-class MainViewController: UIViewController, UISetupProtocol {
+class PasswordResetViewController: UIViewController, UISetupProtocol {
 
-    private lazy var greetingLabel = createUILabel(with: "Hello!", alignment: .center)
-    private lazy var logInButton = createUIButton(withTitle: "Login", andColor: .systemBlue)
+    private lazy var greetingLabel = createUILabel(with: "Reset Password!", alignment: .center)
+    private lazy var logInButton = createUIButton(withTitle: "Reset", andColor: .systemBlue)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class MainViewController: UIViewController, UISetupProtocol {
     }
 }
 
-extension MainViewController {
+extension PasswordResetViewController {
 
     // MARK: - - Setup UI
 
@@ -41,4 +41,5 @@ extension MainViewController {
             logInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
+
 }
