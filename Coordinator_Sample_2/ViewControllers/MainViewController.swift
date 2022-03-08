@@ -9,8 +9,10 @@ import UIKit
 
 class MainViewController: UIViewController, UISetupProtocol {
 
-    private lazy var greetingLabel = createUILabel(with: "Hello!", alignment: .center)
-    private lazy var logInButton = createUIButton(withTitle: "Login", andColor: .systemBlue)
+    var user: User?
+
+    private lazy var greetingLabel = createUILabel(with: "Hello! \(user?.name ?? "")", alignment: .center)
+    private lazy var logOutButton = createUIButton(withTitle: "Logout", andColor: .systemBlue)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,7 @@ extension MainViewController {
     private func setupUI () {
         view.backgroundColor = .white
         view.addSubview(greetingLabel)
-        view.addSubview(logInButton)
+        view.addSubview(logOutButton)
     }
 
     private func setupConstraints() {
@@ -36,9 +38,9 @@ extension MainViewController {
         ])
 
         NSLayoutConstraint.activate([
-            logInButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
-            logInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            logInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            logOutButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            logOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            logOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
 }

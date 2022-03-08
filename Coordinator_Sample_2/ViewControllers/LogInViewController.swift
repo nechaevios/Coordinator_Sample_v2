@@ -1,5 +1,5 @@
 //
-//  SignUpViewController.swift
+//  LogInViewController.swift
 //  Coordinator_Sample_2
 //
 //  Created by Nechaev Sergey  on 08.03.2022.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, UISetupProtocol {
+class LogInViewController: UIViewController, UISetupProtocol {
 
-    private lazy var greetingLabel = createUILabel(with: "Register!", alignment: .center)
-    private lazy var registerButton = createUIButton(withTitle: "Sign Up", andColor: .systemBlue)
+    private lazy var greetingLabel = createUILabel(with: "user?", alignment: .center)
+    private lazy var logInButton = createUIButton(withTitle: "login", andColor: .systemBlue)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +19,14 @@ class SignUpViewController: UIViewController, UISetupProtocol {
     }
 }
 
-extension SignUpViewController {
+extension LogInViewController {
 
     // MARK: - - Setup UI
 
     private func setupUI () {
         view.backgroundColor = .white
         view.addSubview(greetingLabel)
-        view.addSubview(registerButton)
+        view.addSubview(logInButton)
     }
 
     private func setupConstraints() {
@@ -36,9 +36,9 @@ extension SignUpViewController {
         ])
 
         NSLayoutConstraint.activate([
-            registerButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
-            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            logInButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            logInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            logInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
 }

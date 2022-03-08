@@ -16,6 +16,10 @@
 		D85F510E27D6A7290041C853 /* UISetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F510D27D6A7290041C853 /* UISetupProtocol.swift */; };
 		D85F511027D6AA860041C853 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F510F27D6AA860041C853 /* SignUpViewController.swift */; };
 		D85F511227D6AA950041C853 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511127D6AA950041C853 /* PasswordResetViewController.swift */; };
+		D85F511527D74F670041C853 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511427D74F670041C853 /* CoordinatorProtocol.swift */; };
+		D85F511727D74FE20041C853 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511627D74FE20041C853 /* AppCoordinator.swift */; };
+		D85F511A27D750EE0041C853 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511927D750EE0041C853 /* Models.swift */; };
+		D85F511C27D75D670041C853 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511B27D75D670041C853 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		D85F510D27D6A7290041C853 /* UISetupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISetupProtocol.swift; sourceTree = "<group>"; };
 		D85F510F27D6AA860041C853 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D85F511127D6AA950041C853 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
+		D85F511427D74F670041C853 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		D85F511627D74FE20041C853 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D85F511927D750EE0041C853 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		D85F511B27D75D670041C853 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,8 @@
 		D80F989727D68968004A3C61 /* Coordinator_Sample_2 */ = {
 			isa = PBXGroup;
 			children = (
+				D85F511827D750DE0041C853 /* Models */,
+				D85F511327D74EE30041C853 /* Coordinators */,
 				D85F510C27D6A69E0041C853 /* Protocols */,
 				D85F510927D68DC60041C853 /* ViewControllers */,
 				D85F510727D68D860041C853 /* App */,
@@ -117,6 +127,7 @@
 				D85F510A27D68DDA0041C853 /* MainViewController.swift */,
 				D85F510F27D6AA860041C853 /* SignUpViewController.swift */,
 				D85F511127D6AA950041C853 /* PasswordResetViewController.swift */,
+				D85F511B27D75D670041C853 /* LogInViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -125,8 +136,25 @@
 			isa = PBXGroup;
 			children = (
 				D85F510D27D6A7290041C853 /* UISetupProtocol.swift */,
+				D85F511427D74F670041C853 /* CoordinatorProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D85F511327D74EE30041C853 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				D85F511627D74FE20041C853 /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		D85F511827D750DE0041C853 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D85F511927D750EE0041C853 /* Models.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,11 +271,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85F511527D74F670041C853 /* CoordinatorProtocol.swift in Sources */,
 				D85F510B27D68DDB0041C853 /* MainViewController.swift in Sources */,
 				D85F511227D6AA950041C853 /* PasswordResetViewController.swift in Sources */,
 				D85F510E27D6A7290041C853 /* UISetupProtocol.swift in Sources */,
 				D80F989927D68968004A3C61 /* AppDelegate.swift in Sources */,
 				D80F989B27D68968004A3C61 /* SceneDelegate.swift in Sources */,
+				D85F511A27D750EE0041C853 /* Models.swift in Sources */,
+				D85F511727D74FE20041C853 /* AppCoordinator.swift in Sources */,
+				D85F511C27D75D670041C853 /* LogInViewController.swift in Sources */,
 				D85F511027D6AA860041C853 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

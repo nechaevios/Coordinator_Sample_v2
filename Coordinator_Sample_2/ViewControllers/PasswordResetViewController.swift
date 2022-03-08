@@ -10,7 +10,7 @@ import UIKit
 class PasswordResetViewController: UIViewController, UISetupProtocol {
 
     private lazy var greetingLabel = createUILabel(with: "Reset Password!", alignment: .center)
-    private lazy var logInButton = createUIButton(withTitle: "Reset", andColor: .systemBlue)
+    private lazy var resetButton = createUIButton(withTitle: "Reset", andColor: .systemBlue)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ extension PasswordResetViewController {
     private func setupUI () {
         view.backgroundColor = .white
         view.addSubview(greetingLabel)
-        view.addSubview(logInButton)
+        view.addSubview(resetButton)
     }
 
     private func setupConstraints() {
@@ -36,9 +36,9 @@ extension PasswordResetViewController {
         ])
 
         NSLayoutConstraint.activate([
-            logInButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
-            logInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            logInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            resetButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
 
