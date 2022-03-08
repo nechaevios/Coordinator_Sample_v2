@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
 
         let appCoordinator = AppCoordinator(navigationController)
-        appCoordinator.navigate(to: .logIn)
+        appCoordinator.navigateAtAppLaunch()
         self.window = window
     }
 

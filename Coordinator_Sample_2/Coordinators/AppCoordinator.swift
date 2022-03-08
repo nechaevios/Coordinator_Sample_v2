@@ -27,6 +27,15 @@ class AppCoordinator: Coordinator {
         navigationController?.pushViewController(viewController, animated: false)
     }
 
+    func navigateAtAppLaunch() {
+        let viewController = userLogged() ? MainViewController() : LogInViewController()
+        navigationController?.pushViewController(viewController, animated: false)
+    }
+
+    private func userLogged() -> Bool {
+        UserDefaults.standard.bool(forKey: "status")
+    }
+
     private func makeViewController(for destination: Destination) -> UIViewController {
         switch destination {
         case .logIn:
