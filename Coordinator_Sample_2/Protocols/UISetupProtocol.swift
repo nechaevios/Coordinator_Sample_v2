@@ -33,4 +33,12 @@ extension UISetupProtocol {
         label.textAlignment = alignment
         return label
     }
+
+    func createTextField() -> UITextField {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
+        textField.layer.cornerRadius = 8.0
+        return textField
+    }
 }

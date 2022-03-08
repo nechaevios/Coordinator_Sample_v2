@@ -10,6 +10,7 @@ import UIKit
 class LogInViewController: UIViewController, UISetupProtocol {
 
     private lazy var greetingLabel = createUILabel(with: "user?", alignment: .center)
+    private lazy var userNameTF = createTextField()
     private lazy var logInButton = createUIButton(withTitle: "login", andColor: .systemBlue)
 
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ extension LogInViewController {
     private func setupUI () {
         view.backgroundColor = .white
         view.addSubview(greetingLabel)
+        view.addSubview(userNameTF)
         view.addSubview(logInButton)
     }
 
@@ -36,7 +38,13 @@ extension LogInViewController {
         ])
 
         NSLayoutConstraint.activate([
-            logInButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            userNameTF.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            userNameTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            userNameTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+
+        NSLayoutConstraint.activate([
+            logInButton.topAnchor.constraint(equalTo: userNameTF.bottomAnchor, constant: 16),
             logInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
