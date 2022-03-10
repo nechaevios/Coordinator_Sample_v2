@@ -20,6 +20,10 @@
 		D85F511727D74FE20041C853 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511627D74FE20041C853 /* AppCoordinator.swift */; };
 		D85F511A27D750EE0041C853 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511927D750EE0041C853 /* Models.swift */; };
 		D85F511C27D75D670041C853 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511B27D75D670041C853 /* LogInViewController.swift */; };
+		D85F511F27D76CEE0041C853 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511E27D76CEE0041C853 /* LogInViewModel.swift */; };
+		D85F512227D78CF20041C853 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F512127D78CF20041C853 /* MainViewModel.swift */; };
+		D8F7DCE727DA070E0077BC93 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7DCE627DA070E0077BC93 /* LoginCoordinator.swift */; };
+		D8F7DCE927DA0BAB0077BC93 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7DCE827DA0BAB0077BC93 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		D85F511627D74FE20041C853 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D85F511927D750EE0041C853 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D85F511B27D75D670041C853 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		D85F511E27D76CEE0041C853 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		D85F512127D78CF20041C853 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D8F7DCE627DA070E0077BC93 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		D8F7DCE827DA0BAB0077BC93 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,8 @@
 		D80F989727D68968004A3C61 /* Coordinator_Sample_2 */ = {
 			isa = PBXGroup;
 			children = (
+				D85F512027D78A6A0041C853 /* MainView */,
+				D85F511D27D76CD50041C853 /* LogInView */,
 				D85F511827D750DE0041C853 /* Models */,
 				D85F511327D74EE30041C853 /* Coordinators */,
 				D85F510C27D6A69E0041C853 /* Protocols */,
@@ -124,10 +134,8 @@
 		D85F510927D68DC60041C853 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D85F510A27D68DDA0041C853 /* MainViewController.swift */,
 				D85F510F27D6AA860041C853 /* SignUpViewController.swift */,
 				D85F511127D6AA950041C853 /* PasswordResetViewController.swift */,
-				D85F511B27D75D670041C853 /* LogInViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -145,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				D85F511627D74FE20041C853 /* AppCoordinator.swift */,
+				D8F7DCE627DA070E0077BC93 /* LoginCoordinator.swift */,
+				D8F7DCE827DA0BAB0077BC93 /* MainCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -155,6 +165,24 @@
 				D85F511927D750EE0041C853 /* Models.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D85F511D27D76CD50041C853 /* LogInView */ = {
+			isa = PBXGroup;
+			children = (
+				D85F511B27D75D670041C853 /* LogInViewController.swift */,
+				D85F511E27D76CEE0041C853 /* LogInViewModel.swift */,
+			);
+			path = LogInView;
+			sourceTree = "<group>";
+		};
+		D85F512027D78A6A0041C853 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				D85F510A27D68DDA0041C853 /* MainViewController.swift */,
+				D85F512127D78CF20041C853 /* MainViewModel.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +300,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85F511527D74F670041C853 /* CoordinatorProtocol.swift in Sources */,
+				D8F7DCE927DA0BAB0077BC93 /* MainCoordinator.swift in Sources */,
 				D85F510B27D68DDB0041C853 /* MainViewController.swift in Sources */,
+				D85F511F27D76CEE0041C853 /* LogInViewModel.swift in Sources */,
 				D85F511227D6AA950041C853 /* PasswordResetViewController.swift in Sources */,
+				D8F7DCE727DA070E0077BC93 /* LoginCoordinator.swift in Sources */,
 				D85F510E27D6A7290041C853 /* UISetupProtocol.swift in Sources */,
 				D80F989927D68968004A3C61 /* AppDelegate.swift in Sources */,
 				D80F989B27D68968004A3C61 /* SceneDelegate.swift in Sources */,
@@ -281,6 +312,7 @@
 				D85F511727D74FE20041C853 /* AppCoordinator.swift in Sources */,
 				D85F511C27D75D670041C853 /* LogInViewController.swift in Sources */,
 				D85F511027D6AA860041C853 /* SignUpViewController.swift in Sources */,
+				D85F512227D78CF20041C853 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
