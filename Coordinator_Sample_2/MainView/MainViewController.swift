@@ -9,6 +9,12 @@ import UIKit
 
 class MainViewController: UIViewController, UISetupProtocol {
 
+    var viewModel: MainViewModelProtocol! {
+        didSet {
+            print("main view model did set")
+        }
+    }
+
     var user: User?
 
     private lazy var greetingLabel = createUILabel(with: "Hello! \(user?.name ?? "")", alignment: .center)
@@ -18,6 +24,16 @@ class MainViewController: UIViewController, UISetupProtocol {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
+    }
+
+    deinit {
+        print("MainViewController deallocated")
+    }
+
+    @objc private func logOut() {
+        viewModel?.changeStatus {
+            viewModel?.didSendEventClosure?(.logOut)
+        }
     }
 }
 
@@ -29,6 +45,8 @@ extension MainViewController {
         view.backgroundColor = .white
         view.addSubview(greetingLabel)
         view.addSubview(logOutButton)
+
+        logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
 
     private func setupConstraints() {
