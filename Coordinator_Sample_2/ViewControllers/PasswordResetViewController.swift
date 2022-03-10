@@ -17,6 +17,10 @@ class PasswordResetViewController: UIViewController, UISetupProtocol {
         setupUI()
         setupConstraints()
     }
+
+    deinit {
+        print("PasswordResetViewController deallocated")
+    }
 }
 
 extension PasswordResetViewController {
@@ -41,5 +45,4 @@ extension PasswordResetViewController {
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
-
 }
