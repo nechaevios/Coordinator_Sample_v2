@@ -9,18 +9,41 @@ import UIKit
 
 class LogInViewController: UIViewController, UISetupProtocol {
 
-    private lazy var greetingLabel = createUILabel(with: "user?", alignment: .center)
+    var viewModel: LogInViewModelProtocol! {
+        didSet {
+            print("login view model did set")
+        }
+    }
+
+    private lazy var greetingLabel = createUILabel(with: "user", alignment: .center)
     private lazy var userNameTF = createTextField()
     private lazy var logInButton = createUIButton(withTitle: "login", andColor: .systemBlue)
+    private lazy var forgotPasswordButton = createUIButton(withTitle: "forgot password?", andColor: .systemGray)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
     }
+
+    deinit {
+        print("LogInViewController deallocated")
+    }
 }
 
 extension LogInViewController {
+
+    // MARK: - - Setup Actions
+
+    @objc func loginButtonPressed() {
+        viewModel?.changeStatus {
+            viewModel?.didSendEventClosure?(.main)
+        }
+    }
+
+    @objc func forgotPasswordButtonPressed() {
+        viewModel?.didSendEventClosure?(.forgotPassword)
+    }
 
     // MARK: - - Setup UI
 
@@ -29,6 +52,10 @@ extension LogInViewController {
         view.addSubview(greetingLabel)
         view.addSubview(userNameTF)
         view.addSubview(logInButton)
+        view.addSubview(forgotPasswordButton)
+
+        logInButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonPressed), for: .touchUpInside)
     }
 
     private func setupConstraints() {
@@ -48,5 +75,17 @@ extension LogInViewController {
             logInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
+
+        NSLayoutConstraint.activate([
+            forgotPasswordButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+            forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+    }
+}
+
+extension LogInViewController {
+    enum Event {
+        case forgotPassword, main
     }
 }
