@@ -7,48 +7,58 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator {
+protocol AppCoordinatorProtocol: Coordinator {
+    func showLoginFlow()
+    func showMainFlow()
+}
 
-    enum Destination {
-        case logInComplete(user: User)
-        case logIn
-        case registration
-        case resetPassword
-    }
+class AppCoordinator: AppCoordinatorProtocol {
 
-    private weak var navigationController: UINavigationController?
+    weak var finishDelegate: CoordinatorFinishDelegate?
+    var navigationController: UINavigationController
+    var childCoordinators: [Coordinator] = []
+    var type: CoordinatorType { .app }
 
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
-    func navigate(to destination: Destination) {
-        let viewController = makeViewController(for: destination)
-        navigationController?.pushViewController(viewController, animated: false)
+    func start() {
+        navigationController.navigationBar.prefersLargeTitles = true
+        let status = UserDefaults.standard.bool(forKey: "status")
+        status ? showMainFlow() : showLoginFlow()
     }
 
-    func navigateAtAppLaunch() {
-        let viewController = userLogged() ? MainViewController() : LogInViewController()
-        navigationController?.pushViewController(viewController, animated: false)
+    func showLoginFlow() {
+        let loginFlowCoordinator = LoginCoordinator(navigationController)
+        loginFlowCoordinator.finishDelegate = self
+        loginFlowCoordinator.start()
+        childCoordinators.append(loginFlowCoordinator)
     }
 
-    private func userLogged() -> Bool {
-        UserDefaults.standard.bool(forKey: "status")
+    func showMainFlow() {
+        let mainFlowCoordinator = MainCoordinator(navigationController)
+        mainFlowCoordinator.finishDelegate = self
+        mainFlowCoordinator.start()
+        childCoordinators.append(mainFlowCoordinator)
     }
+}
 
-    private func makeViewController(for destination: Destination) -> UIViewController {
-        switch destination {
-        case .logIn:
-            return LogInViewController()
-        case .logInComplete(let user):
-            let mainVC = MainViewController()
-            mainVC.user = user
-            return mainVC
-        case .registration:
-            return SignUpViewController()
-        case .resetPassword:
-            return PasswordResetViewController()
+extension AppCoordinator: CoordinatorFinishDelegate {
+    func coordinatorDidFinish(childCoordinator: Coordinator) {
+        childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
+
+        switch childCoordinator.type {
+        case .login:
+            navigationController.viewControllers.removeAll()
+            showLoginFlow()
+        case .main:
+            navigationController.viewControllers.removeAll()
+            showMainFlow()
+        default:
+            break
         }
+
     }
 
 }
