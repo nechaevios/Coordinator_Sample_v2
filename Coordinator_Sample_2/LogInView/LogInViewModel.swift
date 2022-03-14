@@ -36,7 +36,7 @@ class LogInViewModel: LogInViewModelProtocol {
 
     }
 
-    func changeStatus() {
+    private func changeStatus() {
         var status = UserDefaults.standard.bool(forKey: "status")
         if !status {
             status.toggle()

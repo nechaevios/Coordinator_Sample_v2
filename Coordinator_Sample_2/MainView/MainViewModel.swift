@@ -25,13 +25,12 @@ class MainViewModel: MainViewModelProtocol {
         didSendEventClosure?(.logOut)
     }
 
-    func changeStatus() {
+    private func changeStatus() {
         var status = UserDefaults.standard.bool(forKey: "status")
         if status {
             status.toggle()
             UserDefaults.standard.set(status, forKey: "status")
         }
-        print(status)
     }
 
 }
