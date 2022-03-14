@@ -25,9 +25,7 @@ class MainCoordinator: MainCoordinatorProtocol {
     func showMain() {
         let mainVC = MainViewController()
         mainVC.viewModel = MainViewModel()
-
         mainVC.navigationItem.title = "Main"
-//        navigationController.navigationBar.prefersLargeTitles = true
 
         mainVC.viewModel?.didSendEventClosure = { [weak self] eventType in
             switch eventType {
@@ -35,7 +33,6 @@ class MainCoordinator: MainCoordinatorProtocol {
                 self?.type = .login
                 self?.finish()
             }
-
         }
 
         navigationController.pushViewController(mainVC, animated: false)
@@ -48,5 +45,4 @@ class MainCoordinator: MainCoordinatorProtocol {
     deinit {
         print("MainCoordinator deallocated")
     }
-
 }

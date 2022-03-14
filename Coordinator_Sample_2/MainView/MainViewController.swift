@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UISetupProtocol {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
+
     }
 
     deinit {
@@ -31,9 +32,7 @@ class MainViewController: UIViewController, UISetupProtocol {
     }
 
     @objc private func logOut() {
-        viewModel?.changeStatus {
-            viewModel?.didSendEventClosure?(.logOut)
-        }
+        viewModel?.logOutPressed()
     }
 }
 
@@ -57,6 +56,7 @@ extension MainViewController {
 
         NSLayoutConstraint.activate([
             logOutButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            logOutButton.heightAnchor.constraint(equalToConstant: 50),
             logOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             logOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
