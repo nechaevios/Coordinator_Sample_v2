@@ -8,7 +8,6 @@
 import Foundation
 
 protocol LogInViewModelProtocol: AnyObject {
-    var didSendEventClosure: ((LogInViewModel.Event) -> Void)? { get set }
     func logInPressed()
     func forgotPasswordPressed()
     func signUpPressed()
