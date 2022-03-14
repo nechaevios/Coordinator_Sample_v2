@@ -36,13 +36,11 @@ extension LogInViewController {
     // MARK: - - Setup Actions
 
     @objc func loginButtonPressed() {
-        viewModel?.changeStatus {
-            viewModel?.didSendEventClosure?(.main)
-        }
+        viewModel?.logInPressed()
     }
 
     @objc func forgotPasswordButtonPressed() {
-        viewModel?.didSendEventClosure?(.forgotPassword)
+        viewModel?.forgotPasswordPressed()
     }
 
     // MARK: - - Setup UI
@@ -60,24 +58,27 @@ extension LogInViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            greetingLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            greetingLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
             greetingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
 
         NSLayoutConstraint.activate([
             userNameTF.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            userNameTF.heightAnchor.constraint(equalToConstant: 50),
             userNameTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             userNameTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
 
         NSLayoutConstraint.activate([
             logInButton.topAnchor.constraint(equalTo: userNameTF.bottomAnchor, constant: 16),
+            logInButton.heightAnchor.constraint(equalToConstant: 50),
             logInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
 
         NSLayoutConstraint.activate([
             forgotPasswordButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 50),
             forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])

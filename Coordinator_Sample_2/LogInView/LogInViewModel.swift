@@ -9,7 +9,9 @@ import Foundation
 
 protocol LogInViewModelProtocol: AnyObject {
     var didSendEventClosure: ((LogInViewModel.Event) -> Void)? { get set }
-    func changeStatus(completion: () -> Void)
+    func logInPressed()
+    func forgotPasswordPressed()
+    func signUpPressed()
 }
 
 class LogInViewModel: LogInViewModelProtocol {
@@ -21,18 +23,30 @@ class LogInViewModel: LogInViewModelProtocol {
         print("LogInViewModel deallocated")
     }
 
-    func changeStatus(completion: () -> Void) {
+    func logInPressed() {
+        changeStatus()
+        didSendEventClosure?(.main)
+    }
+
+    func forgotPasswordPressed() {
+        didSendEventClosure?(.forgotPassword)
+    }
+
+    func signUpPressed() {
+
+    }
+
+    func changeStatus() {
         var status = UserDefaults.standard.bool(forKey: "status")
         if !status {
             status.toggle()
             UserDefaults.standard.set(status, forKey: "status")
         }
-        completion()
     }
 }
 
  extension LogInViewModel {
     enum Event {
-        case forgotPassword,main
+        case forgotPassword, main
     }
  }

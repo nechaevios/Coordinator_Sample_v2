@@ -33,9 +33,7 @@ class LoginCoordinator : LoginCoordinatorProtocol {
     func showLogin() {
         let loginVC = LogInViewController()
         loginVC.viewModel = LogInViewModel()
-
         loginVC.navigationItem.title = "LogIn"
-//        navigationController.navigationBar.prefersLargeTitles = true
 
         loginVC.viewModel.didSendEventClosure = { [weak self] eventType in
             switch eventType {

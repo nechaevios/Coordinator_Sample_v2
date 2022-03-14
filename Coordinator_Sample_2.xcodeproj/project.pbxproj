@@ -103,7 +103,6 @@
 				D85F512027D78A6A0041C853 /* MainView */,
 				D85F511D27D76CD50041C853 /* LogInView */,
 				D85F511827D750DE0041C853 /* Models */,
-				D85F511327D74EE30041C853 /* Coordinators */,
 				D85F510C27D6A69E0041C853 /* Protocols */,
 				D85F510927D68DC60041C853 /* ViewControllers */,
 				D85F510727D68D860041C853 /* App */,
@@ -115,6 +114,7 @@
 		D85F510727D68D860041C853 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D85F511627D74FE20041C853 /* AppCoordinator.swift */,
 				D80F989827D68968004A3C61 /* AppDelegate.swift */,
 				D80F989A27D68968004A3C61 /* SceneDelegate.swift */,
 				D80F98A327D68969004A3C61 /* LaunchScreen.storyboard */,
@@ -149,16 +149,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		D85F511327D74EE30041C853 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				D85F511627D74FE20041C853 /* AppCoordinator.swift */,
-				D8F7DCE627DA070E0077BC93 /* LoginCoordinator.swift */,
-				D8F7DCE827DA0BAB0077BC93 /* MainCoordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
 		D85F511827D750DE0041C853 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +160,7 @@
 		D85F511D27D76CD50041C853 /* LogInView */ = {
 			isa = PBXGroup;
 			children = (
+				D8F7DCE627DA070E0077BC93 /* LoginCoordinator.swift */,
 				D85F511B27D75D670041C853 /* LogInViewController.swift */,
 				D85F511E27D76CEE0041C853 /* LogInViewModel.swift */,
 			);
@@ -179,6 +170,7 @@
 		D85F512027D78A6A0041C853 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				D8F7DCE827DA0BAB0077BC93 /* MainCoordinator.swift */,
 				D85F510A27D68DDA0041C853 /* MainViewController.swift */,
 				D85F512127D78CF20041C853 /* MainViewModel.swift */,
 			);
