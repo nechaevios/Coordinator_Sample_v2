@@ -41,6 +41,7 @@ extension PasswordResetViewController {
 
         NSLayoutConstraint.activate([
             resetButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            resetButton.heightAnchor.constraint(equalToConstant: 50),
             resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
