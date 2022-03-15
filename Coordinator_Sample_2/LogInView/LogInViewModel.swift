@@ -8,28 +8,27 @@
 import Foundation
 
 protocol LogInViewModelProtocol: AnyObject {
-    var didSendEventClosure: ((LogInViewModel.Event) -> Void)? { get set }
-    func logInPressed()
+    var didSendEventClosure: ((LogInViewModel.Event, String?) -> Void)? { get set }
+    func logInPressed(_ name: String)
     func forgotPasswordPressed()
     func signUpPressed()
 }
 
 class LogInViewModel: LogInViewModelProtocol {
 
-    var didSendEventClosure: ((LogInViewModel.Event) -> Void)?
-    var user: User?
+    var didSendEventClosure: ((LogInViewModel.Event, String?) -> Void)?
 
     deinit {
         print("LogInViewModel deallocated")
     }
 
-    func logInPressed() {
+    func logInPressed(_ name: String) {
         changeStatus()
-        didSendEventClosure?(.main)
+        didSendEventClosure?(.main, name)
     }
 
     func forgotPasswordPressed() {
-        didSendEventClosure?(.forgotPassword)
+        didSendEventClosure?(.forgotPassword, nil)
     }
 
     func signUpPressed() {
