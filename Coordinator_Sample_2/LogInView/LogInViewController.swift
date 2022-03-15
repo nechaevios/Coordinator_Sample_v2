@@ -36,7 +36,8 @@ extension LogInViewController {
     // MARK: - - Setup Actions
 
     @objc func loginButtonPressed() {
-        viewModel?.logInPressed()
+        guard let name = userNameTF.text else { return }
+        viewModel?.logInPressed(name)
     }
 
     @objc func forgotPasswordButtonPressed() {
