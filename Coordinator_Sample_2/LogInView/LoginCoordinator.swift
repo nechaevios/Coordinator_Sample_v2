@@ -35,17 +35,23 @@ class LoginCoordinator : LoginCoordinatorProtocol {
         loginVC.viewModel = LogInViewModel()
         loginVC.navigationItem.title = "LogIn"
 
-        loginVC.viewModel.didSendEventClosure = { [weak self] eventType in
+        loginVC.viewModel.didSendEventClosure = { [weak self] eventType, name in
             switch eventType {
             case .forgotPassword:
                 self?.showResetPassword()
             case .main:
+                self?.updateAppData(name)
                 self?.type = .main
                 self?.finish()
             }
         }
 
         navigationController.pushViewController(loginVC, animated: false)
+    }
+
+    private func updateAppData(_ name: String?) {
+        guard let name = name else { return }
+        finishDelegate?.updateUserData(name: name, age: "Data")
     }
 
     private func showResetPassword() {
