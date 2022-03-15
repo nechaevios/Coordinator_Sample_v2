@@ -17,8 +17,9 @@ class MainViewController: UIViewController, UISetupProtocol {
 
     var user: User?
 
-    private lazy var greetingLabel = createUILabel(with: "Hello! \(user?.name ?? "")", alignment: .center)
-    private lazy var logOutButton = createUIButton(withTitle: "Logout", andColor: .systemBlue)
+    private lazy var greetingLabel = createUILabel(with: "Hello! \(viewModel.user?.name ?? "")", alignment: .center)
+    private lazy var settingsButton =  createUIButton(withTitle: "Settings", andColor: .systemBlue)
+    private lazy var logOutButton = createUIButton(withTitle: "Logout", andColor: .systemGray)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ extension MainViewController {
     private func setupUI () {
         view.backgroundColor = .white
         view.addSubview(greetingLabel)
+        view.addSubview(settingsButton)
         view.addSubview(logOutButton)
 
         logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
@@ -55,7 +57,14 @@ extension MainViewController {
         ])
 
         NSLayoutConstraint.activate([
-            logOutButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            settingsButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            settingsButton.heightAnchor.constraint(equalToConstant: 50),
+            settingsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+
+        NSLayoutConstraint.activate([
+            logOutButton.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 16),
             logOutButton.heightAnchor.constraint(equalToConstant: 50),
             logOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             logOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)

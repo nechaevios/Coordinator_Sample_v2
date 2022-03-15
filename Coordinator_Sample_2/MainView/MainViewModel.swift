@@ -9,12 +9,14 @@ import Foundation
 
 protocol MainViewModelProtocol {
     var didSendEventClosure: ((MainViewModel.Event) -> Void)? { get set }
+    var user: User? { get set }
     func logOutPressed()
 }
 
 class MainViewModel: MainViewModelProtocol {
 
     var didSendEventClosure: ((MainViewModel.Event) -> Void)?
+    var user: User?
 
     deinit {
         print("MainViewModel deallocated")

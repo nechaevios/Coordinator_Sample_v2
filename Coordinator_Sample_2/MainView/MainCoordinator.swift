@@ -8,6 +8,7 @@
 import UIKit
 
 protocol MainCoordinatorProtocol: Coordinator {
+    var user: User? { get set }
     func showMain()
 }
 
@@ -17,6 +18,7 @@ class MainCoordinator: MainCoordinatorProtocol {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     var type: CoordinatorType = .main
+    var user: User?
 
     func start() {
         showMain()
@@ -25,6 +27,7 @@ class MainCoordinator: MainCoordinatorProtocol {
     func showMain() {
         let mainVC = MainViewController()
         mainVC.viewModel = MainViewModel()
+        mainVC.viewModel.user = user
         mainVC.navigationItem.title = "Main"
 
         mainVC.viewModel?.didSendEventClosure = { [weak self] eventType in
