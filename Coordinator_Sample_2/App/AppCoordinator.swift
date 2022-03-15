@@ -8,6 +8,7 @@
 import UIKit
 
 protocol AppCoordinatorProtocol: Coordinator {
+    var user: User? { get set }
     func showLoginFlow()
     func showMainFlow()
 }
@@ -18,6 +19,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     var type: CoordinatorType { .app }
+    var user: User?
 
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -38,6 +40,7 @@ class AppCoordinator: AppCoordinatorProtocol {
 
     func showMainFlow() {
         let mainFlowCoordinator = MainCoordinator(navigationController)
+        mainFlowCoordinator.user = user
         mainFlowCoordinator.finishDelegate = self
         mainFlowCoordinator.start()
         childCoordinators.append(mainFlowCoordinator)
@@ -45,6 +48,10 @@ class AppCoordinator: AppCoordinatorProtocol {
 }
 
 extension AppCoordinator: CoordinatorFinishDelegate {
+    func updateUserData(name: String, age: String) {
+        user = User(name: name, age: age)
+    }
+
     func coordinatorDidFinish(childCoordinator: Coordinator) {
         childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
 

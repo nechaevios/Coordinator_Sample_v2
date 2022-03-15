@@ -26,6 +26,8 @@ extension Coordinator {
 
 // MARK: - CoordinatorOutput
 protocol CoordinatorFinishDelegate: AnyObject {
+    func updateUserData(name: String, age: String)
+
     func coordinatorDidFinish(childCoordinator: Coordinator)
 }
 
