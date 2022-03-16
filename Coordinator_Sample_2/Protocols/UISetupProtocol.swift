@@ -31,6 +31,7 @@ extension UISetupProtocol {
         label.text = string
         label.textColor = color
         label.textAlignment = alignment
+        label.numberOfLines = 0
         return label
     }
 
