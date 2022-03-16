@@ -22,6 +22,8 @@
 		D85F511C27D75D670041C853 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511B27D75D670041C853 /* LogInViewController.swift */; };
 		D85F511F27D76CEE0041C853 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F511E27D76CEE0041C853 /* LogInViewModel.swift */; };
 		D85F512227D78CF20041C853 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F512127D78CF20041C853 /* MainViewModel.swift */; };
+		D8E75A7227E0F9C70040852B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E75A7127E0F9C70040852B /* SettingsViewController.swift */; };
+		D8E75A7427E0F9DF0040852B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E75A7327E0F9DF0040852B /* SettingsViewModel.swift */; };
 		D8F7DCE727DA070E0077BC93 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7DCE627DA070E0077BC93 /* LoginCoordinator.swift */; };
 		D8F7DCE927DA0BAB0077BC93 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7DCE827DA0BAB0077BC93 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,8 @@
 		D85F511B27D75D670041C853 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		D85F511E27D76CEE0041C853 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		D85F512127D78CF20041C853 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D8E75A7127E0F9C70040852B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D8E75A7327E0F9DF0040852B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D8F7DCE627DA070E0077BC93 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		D8F7DCE827DA0BAB0077BC93 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +104,7 @@
 		D80F989727D68968004A3C61 /* Coordinator_Sample_2 */ = {
 			isa = PBXGroup;
 			children = (
+				D83BF7A327E228BA00F1617A /* SettingsView */,
 				D85F512027D78A6A0041C853 /* MainView */,
 				D85F511D27D76CD50041C853 /* LogInView */,
 				D85F511827D750DE0041C853 /* Models */,
@@ -109,6 +114,15 @@
 				D85F510827D68D900041C853 /* Resources */,
 			);
 			path = Coordinator_Sample_2;
+			sourceTree = "<group>";
+		};
+		D83BF7A327E228BA00F1617A /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				D8E75A7127E0F9C70040852B /* SettingsViewController.swift */,
+				D8E75A7327E0F9DF0040852B /* SettingsViewModel.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 		D85F510727D68D860041C853 /* App */ = {
@@ -299,12 +313,14 @@
 				D8F7DCE727DA070E0077BC93 /* LoginCoordinator.swift in Sources */,
 				D85F510E27D6A7290041C853 /* UISetupProtocol.swift in Sources */,
 				D80F989927D68968004A3C61 /* AppDelegate.swift in Sources */,
+				D8E75A7227E0F9C70040852B /* SettingsViewController.swift in Sources */,
 				D80F989B27D68968004A3C61 /* SceneDelegate.swift in Sources */,
 				D85F511A27D750EE0041C853 /* Models.swift in Sources */,
 				D85F511727D74FE20041C853 /* AppCoordinator.swift in Sources */,
 				D85F511C27D75D670041C853 /* LogInViewController.swift in Sources */,
 				D85F511027D6AA860041C853 /* SignUpViewController.swift in Sources */,
 				D85F512227D78CF20041C853 /* MainViewModel.swift in Sources */,
+				D8E75A7427E0F9DF0040852B /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
