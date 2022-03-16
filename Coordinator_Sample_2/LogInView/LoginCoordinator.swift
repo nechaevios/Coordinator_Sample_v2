@@ -51,7 +51,7 @@ class LoginCoordinator : LoginCoordinatorProtocol {
 
     private func updateAppData(_ name: String?) {
         guard let name = name else { return }
-        finishDelegate?.updateUserData(name: name, age: "Data")
+        finishDelegate?.updateUserData(name: name, age: "")
     }
 
     private func showResetPassword() {
