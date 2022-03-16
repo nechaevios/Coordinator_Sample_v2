@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol updatableDataProtocol: AnyObject {
+    var user: User? { get set }
+}
+
 protocol Coordinator: AnyObject {
     var finishDelegate: CoordinatorFinishDelegate? { get set }
     var navigationController: UINavigationController { get set }
@@ -26,7 +30,7 @@ extension Coordinator {
 
 // MARK: - CoordinatorOutput
 protocol CoordinatorFinishDelegate: AnyObject {
-    func updateUserData(name: String, age: String)
+    func updateUserData(name: String?, age: String?)
 
     func coordinatorDidFinish(childCoordinator: Coordinator)
 }

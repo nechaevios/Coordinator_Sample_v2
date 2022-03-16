@@ -19,7 +19,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     var type: CoordinatorType { .app }
-    var user: User?
+    var user: User? { didSet { updateViews() }}
 
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -45,10 +45,20 @@ class AppCoordinator: AppCoordinatorProtocol {
         mainFlowCoordinator.start()
         childCoordinators.append(mainFlowCoordinator)
     }
+
+    private func updateViews() {
+        childCoordinators.forEach {
+            guard let coordinator = $0 as? updatableDataProtocol else { return }
+            coordinator.user = user
+        }
+    }
 }
 
 extension AppCoordinator: CoordinatorFinishDelegate {
-    func updateUserData(name: String, age: String) {
+    func updateUserData(name: String?, age: String?) {
+        guard let name = name else { return }
+        guard let age = age else { return }
+
         user = User(name: name, age: age)
     }
 
