@@ -12,6 +12,7 @@ protocol MainViewModelProtocol {
     var user: User? { get set }
     func logOutPressed()
     func openSettingsView()
+    func openTabsView()
 }
 
 class MainViewModel: MainViewModelProtocol {
@@ -32,6 +33,10 @@ class MainViewModel: MainViewModelProtocol {
         didSendEventClosure?(.openSettings)
     }
 
+    func openTabsView() {
+        didSendEventClosure?(.showTabs)
+    }
+
     private func changeStatus() {
         var status = UserDefaults.standard.bool(forKey: "status")
         if status {
@@ -44,6 +49,6 @@ class MainViewModel: MainViewModelProtocol {
 
 extension MainViewModel {
     enum Event {
-        case logOut, openSettings
+        case logOut, openSettings, showTabs
     }
 }
