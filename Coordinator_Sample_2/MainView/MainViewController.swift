@@ -11,14 +11,13 @@ class MainViewController: UIViewController, UISetupProtocol {
 
     var viewModel: MainViewModelProtocol! {
         didSet {
-            print("main view model did set")
+            greetingLabel.text = "Hello! \nName: \(viewModel.user?.name ?? "") \nAge: \(viewModel.user?.age ?? "")"
         }
     }
 
-    var user: User?
-
     private lazy var greetingLabel = createUILabel(with: "Hello! \(viewModel.user?.name ?? "")", alignment: .center)
     private lazy var settingsButton =  createUIButton(withTitle: "Settings", andColor: .systemBlue)
+    private lazy var tabsButton = createUIButton(withTitle: "Show Tabs", andColor: .systemCyan)
     private lazy var logOutButton = createUIButton(withTitle: "Logout", andColor: .systemGray)
 
     override func viewDidLoad() {
@@ -35,6 +34,14 @@ class MainViewController: UIViewController, UISetupProtocol {
     @objc private func logOut() {
         viewModel?.logOutPressed()
     }
+
+    @objc private func settingsButtonPressed() {
+        viewModel?.openSettingsView()
+    }
+
+    @objc private func showTabsButtonPressed() {
+        viewModel?.openTabsView()
+    }
 }
 
 extension MainViewController {
@@ -45,9 +52,12 @@ extension MainViewController {
         view.backgroundColor = .white
         view.addSubview(greetingLabel)
         view.addSubview(settingsButton)
+        view.addSubview(tabsButton)
         view.addSubview(logOutButton)
 
         logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
+        tabsButton.addTarget(self, action: #selector(showTabsButtonPressed), for: .touchUpInside)
     }
 
     private func setupConstraints() {
@@ -57,14 +67,21 @@ extension MainViewController {
         ])
 
         NSLayoutConstraint.activate([
-            settingsButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 16),
+            settingsButton.bottomAnchor.constraint(equalTo: tabsButton.topAnchor, constant: -16),
             settingsButton.heightAnchor.constraint(equalToConstant: 50),
             settingsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
 
         NSLayoutConstraint.activate([
-            logOutButton.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 16),
+            tabsButton.bottomAnchor.constraint(equalTo: logOutButton.topAnchor, constant: -16),
+            tabsButton.heightAnchor.constraint(equalToConstant: 50),
+            tabsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            tabsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+
+        NSLayoutConstraint.activate([
+            logOutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
             logOutButton.heightAnchor.constraint(equalToConstant: 50),
             logOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             logOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
